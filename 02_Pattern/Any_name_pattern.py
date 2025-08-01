@@ -347,7 +347,7 @@ for letter in name:
     if letter in letter_functions:
         pattern = letter_functions[letter]()
     else:
-        pattern = ["     "] * 5  
+        pattern = ["     "] * 5 
     for i in range(5):
         output_lines[i] += pattern[i] + "  "
 

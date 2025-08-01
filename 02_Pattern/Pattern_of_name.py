@@ -180,11 +180,11 @@ def print_name_in_stars(name):
     for ch in name:
         pattern = print_pattern(ch)
         for i in range(5):
-            lines[i] += pattern[i] + "  "
+           lines[i] += pattern[i] + "  "
     for line in lines:
         print(line)
 
-# Run the function
+
 s=input("Enter any name:")
 print_name_in_stars(s)
 
