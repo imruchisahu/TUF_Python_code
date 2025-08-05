@@ -65,4 +65,5 @@ class Solution:
     def reverse(self, nums, left, right):
         if left >= right:
             return
-        nums[left], nums[right] = nums[right], nums
+        nums[left], nums[right] = nums[right], nums[left]
+        self.reverse(nums, left + 1, right - 1)
