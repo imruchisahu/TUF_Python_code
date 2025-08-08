@@ -130,3 +130,13 @@ ans = sol.pascalTriangleI(r, c)
 print("The element in the rth row and cth column in pascal's triangle is:", ans)
 
 '''
+class Solution:
+    def pascalTriangleI(self, r, c):
+        return self.nCr(r - 1, c - 1)
+
+    def nCr(self, n, r):
+        res = 1
+        for i in range(r):
+            res = res * (n-i)
+            res = res // (i + 1)
+        return res

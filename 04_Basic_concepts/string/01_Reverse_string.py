@@ -69,12 +69,28 @@ if __name__ == "__main__":
 
 
 '''
-class Solution: 
+# class Solution: 
+#     def reverseString(self, s):
+#         #your code goes here
+#         l=[]
+#         for char in s:
+#             l.append(char)
+#         for i in range(len(s)):
+#             s[i] = l.pop()
+#         return
+
+
+class Solution:
     def reverseString(self, s):
-        #your code goes here
-        l=[]
-        for char in s:
-            l.append(char)
-        for i in range(len(s)):
-            s[i] = l.pop()
-        return
+        #use O(1) space
+        left, right = 0, len(s) - 1
+        while left < right:
+            # Swap the elements
+            s[left], s[right] = s[right], s[left]
+            # Move the pointers
+            left += 1
+            right -= 1
+        return s
+s1=Solution()
+s=['h', 'e', 'l', 'l', 'o']
+print(s1.reverseString(s))
