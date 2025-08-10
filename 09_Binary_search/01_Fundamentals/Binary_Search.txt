@@ -1,0 +1,40 @@
+Binary Search is a searching algorithm used to find the position of a target value within a **sorted array or list**.
+It works by **repeatedly dividing the search range in half**, eliminating half of the elements each time until 
+the target is found (or the search range becomes empty).
+
+---
+
+### **How it works (Step-by-step)**
+
+1. **Start** with the first (`low`) and last (`high`) indices of the sorted array.
+2. **Find the middle index**:
+
+   $$
+   mid = (low + high) // 2
+   $$
+3. **Compare** the middle element with the target:
+
+   * If `arr[mid] == target` → Found 
+   * If `arr[mid] < target` → Search in the right half (`low = mid + 1`)
+   * If `arr[mid] > target` → Search in the left half (`high = mid - 1`)
+4. **Repeat** until `low > high` (meaning the element is not present).
+
+---
+
+### **Key Points**
+
+* Works only on **sorted data** (ascending or descending).
+* **Time Complexity:** $O(\log n)$ — very efficient compared to linear search ($O(n)$).
+* **Space Complexity:** $O(1)$ for iterative, $O(\log n)$ for recursive (due to call stack).
+
+---
+
+### **Example**
+
+Array: `[2, 4, 6, 8, 10, 12]`
+Target: `10`
+
+1. **low=0, high=5 → mid=2** → arr\[2] = 6 → target > 6 → search right half.
+2. **low=3, high=5 → mid=4** → arr\[4] = 10 →  found at index 4.
+
+---
