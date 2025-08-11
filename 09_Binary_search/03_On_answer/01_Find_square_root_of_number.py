@@ -34,12 +34,6 @@ Check if 'val' is less than or equal to n. If true update 'ans' to the current v
 If val exceeds n, break out of the loop since further values of the next integer will only yield larger squares.
 Once the loop completes, ans contains the largest integer such that ans * ans is less than or equal to n, providing the floor of the square root of n. Finally return ans.
 
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 class Solution:
@@ -86,14 +80,6 @@ Start with initializing low to 1 and high initialized to n, where n is the given
 Use a while loop, where it continues to search until low exceeds high. Calculate 'mid' as the midpoint between low and high. Compute val as mid * mid, the square of the midpoint.
 Check if 'val' is less than or equal to n, if true, it means mid could be a potential candidate for the square root. Store the mid in 'ans' and move the search to the right part by updating low to mid + 1. If false, move the search to the left part by updating high to mid - 1 because mid is too high and mid * mid exceeds n
 Once the while loop exits, 'ans' holds the largest integer ans such that ans * ans does not exceed n.
-
-
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 class Solution:

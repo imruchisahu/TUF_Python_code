@@ -42,13 +42,6 @@ Within this loop, divide each element in the array by the current divisor, and s
 If result is less than or equal to threshold, return the current divisor as our answer.
 Finally, if we are outside the nested loops, return -1 as no such divisor is found.
 
-Cpp
-Java
-Python
-Javascript
-C#
-Go
-
 
 import math
 
@@ -110,12 +103,7 @@ Iterate through each element in the array using a for-loop. For each element, th
 The rounded-up division result is added to 'sum' in each iteration of the loop. This accumulates the total sum of all such rounded-up division results for all elements in nums.
 Finally, after iterating through all elements in array, the return the accumulated sum, which represents the total sum of division results rounded up to the nearest integer for each element divided by limit.
 
-Cpp
-Java
-Python
-Javascript
-C#
-Go
+
 
 
 import math

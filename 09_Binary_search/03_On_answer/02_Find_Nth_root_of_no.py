@@ -38,13 +38,6 @@ Continue the process until the exponent becomes zero, and the final result is re
 If the result is equal to M, this means x is the Nth root of M. So, return x from this step.
 If the calculated value is smaller than M, then continue to next iteration.
 If the calculated value is greater than M, this means we have got a bigger number than our answer and until now we have not found any number that can be our answer. In this case, our answer does not exist and break out from this step and return -1.
-Code:
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 class Solution:
@@ -120,24 +113,6 @@ First declare a variable ‘ans’ to store the value midn. Now, use Exponentiat
 Inside the while loop, if at any point ‘ans’ becomes greater than M, return 2.
 Once the loop is completed, if the ‘ans’ is equal to M, return 1.
 If the value is smaller, return 0.
-Dry Run:
-Image 1
-Image 2
-Image 3
-Image 4
-Image 5
-
-1/5
-
-
-
-Code:
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 class Solution:

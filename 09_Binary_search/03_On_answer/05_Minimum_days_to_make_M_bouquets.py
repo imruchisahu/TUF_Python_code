@@ -49,13 +49,6 @@ The function iterates through each flower's blooming day in nums. For each flowe
 After iterating through all flowers, there might be remaining flowers (cnt) that have bloomed within day. Calculate how many additional bouquets can be formed with these remaining flowers and add this to noOfB.
 Finally, check if the total number of bouquets (noOfB) formed is greater than or equal to m. If so, return true, indicating that it's possible to form at least m bouquets with the given constraints (day and k).If not, return false.
 
-Cpp
-Java
-Python
-Javascript
-C#
-Go
-
 
 
  class Solution:
@@ -160,20 +153,7 @@ The function iterates through each flower's blooming day in nums. For each flowe
 After iterating through all flowers, there might be remaining flowers (cnt) that have bloomed within day. Calculate how many additional bouquets can be formed with these remaining flowers and add this to noOfB.
 Finally, check if the total number of bouquets (noOfB) formed is greater than or equal to m. If so, return true, indicating that it's possible to form at least m bouquets with the given constraints (day and k).If not, return false.
 
-Image 1
-Image 2
-Image 3
-Image 4
 
-1/4
-
-
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 class Solution:

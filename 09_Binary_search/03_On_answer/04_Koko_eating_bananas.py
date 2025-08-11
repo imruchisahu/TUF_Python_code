@@ -52,12 +52,6 @@ Working of calculateTotalHours(arr,hourly):
 Start with initializing n = size of array, which gives the number of elements in the array. Initialize 'totalH' to 0, which will accumulate the total hours required. 'hourly' represents the number of items that can be processed per hour.
 Compute the number of hours required to eat all bananas at the rate of 'hourly' bananas per hour and store in 'totalH'. Use ceil function to round up the division result to ensure that partial hours are counted correctly when necessary. Ater the traversal has ended, return 'totalH' as answer.
 
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 import math
@@ -136,20 +130,6 @@ Now, literate through the array and find the maximum element among them, and ret
 Working of calculateTotalHours(arr,hourly):
 Start with initializing n = size of array, which gives the number of elements in the array. Initialize 'totalH' to 0, which will accumulate the total hours required. 'hourly' represents the number of items that can be processed per hour.
 Compute the number of hours required to eat all bananas at the rate of 'hourly' bananas per hour and store in 'totalH'. Use ceil function to round up the division result to ensure that partial hours are counted correctly when necessary. Ater the traversal has ended, return 'totalH' as answer.
-
-Image 1
-Image 2
-Image 3
-
-1/3
-
-
-Cpp
-Java
-Python
-Javascript
-C#
-Go
 
 
 import math
