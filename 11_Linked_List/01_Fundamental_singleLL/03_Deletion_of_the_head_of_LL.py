@@ -106,3 +106,17 @@ Time Complexity: O(1) for updating the head of the linked list.
 Space Complexity: O(1) as no extra space is used.
 
 '''
+# Definiton of singly Linked List
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def deleteHead(self, head):
+        if head is None:
+            return None
+        temp = head
+        head = head.next
+        del temp
+        return head

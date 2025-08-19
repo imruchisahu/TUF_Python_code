@@ -115,7 +115,27 @@ Complexity Analysis:
 Time Complexity: O(N) worst case, when deleting the tail and O(1) best case, when deleting the head.
 
 Space Complexity: O(1) no extra space used.
-
-
-
 '''
+# Definiton of singly Linked List
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def deleteKthNode(self, head, k):
+        if head is None:
+            return None
+        if k == 1:
+            head = head.next
+            return head
+        temp = head
+        for i in range(k - 2):
+            if temp is None:
+                break
+            temp = temp.next
+    
+        if temp is None or temp.next is None:
+            return head
+        temp.next = temp.next.next
+        return head

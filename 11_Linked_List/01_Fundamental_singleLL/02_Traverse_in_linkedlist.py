@@ -88,4 +88,19 @@ if __name__ == "__main__":
     print()
 
 '''
+# Definition of singly linked list:
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def LLTraversal(self, head):
+        temp = head
+        ans = []
+        while temp is not None:
+            ans.append(temp.val)
+            temp = temp.next
+        return ans
+    
     

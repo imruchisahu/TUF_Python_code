@@ -34,23 +34,6 @@ Set the next pointer of the new tail (second-to-last node) to null to update the
 Edge cases:
 If the input linked list is empty, return null.
 If there is only one node in the list, delete that node and return null.
-Dry Run:
-Image 1
-Image 2
-Image 3
-Image 4
-
-1/4
-
-
-Solution:
-Cpp
-Java
-Python
-Javascript
-C#
-Go
-
 
 # Node structure
 class ListNode:
@@ -119,3 +102,19 @@ Time Complexity: O(N) for traversing the linked list and updating the tail.
 Space Complexity: O(1) as no extra space has been used.
 
 '''
+# Definiton of singly Linked List
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def deleteTail(self, head):
+        if head is None or head.next is None:
+            return None
+        
+        temp=head
+        while temp.next.next is not None:
+            temp = temp.next
+        temp.next = None
+        return head
