@@ -1,0 +1,159 @@
+Sliding Window + Two Pointers: Constant Window Approach
+The sliding window technique, when combined with the two-pointer approach, is a powerful method for solving problems that involve subarrays or substrings within a fixed range. The constant window approach maintains a window of a specific size and slides it across the array or string. This editorial details a method to efficiently compute the sum of elements within such a window by leveraging the properties of the sliding window technique.
+
+Concept
+The goal is to calculate the sum of elements within a fixed-size window as it moves across the array. A brute-force method would involve recalculating the sum of the window each time it moves, which would lead to a time complexity of O(n * k), where n is the number of elements in the array, and k is the size of the window.
+
+However, a more efficient approach involves updating the sum incrementally. As the window slides from left to right, the sum of the current window can be derived from the sum of the previous window by subtracting the element that is leaving the window (on the left) and adding the element that is entering the window (on the right). This reduces the time complexity to O(n).
+
+Steps
+Initialize two pointers: left and right. The left pointer marks the beginning of the window, and the right pointer marks the end.
+Calculate the sum of the initial window.
+Slide the window by incrementing both left and right pointers. Update the sum by subtracting the element at the left pointer and adding the element at the right pointer.
+Continue this process until the window has traversed the entire array.
+#include<bits/stdc++.h>
+using namespace std;
+
+void slidingWindowSum(const vector<int>& arr, int k) {
+    int n = arr.size();
+    int sum = 0;
+
+    // Calculate the sum of the initial window
+    for (int i = 0; i < k; ++i) {
+        sum += arr[i];
+    }
+
+    // Print the sum of the first window
+    cout << "Sum of window 1: " << sum << endl;
+
+    // Slide the window across the array
+    for (int i = k; i < n; ++i) {
+        sum = sum - arr[i - k] + arr[i]; // Update the sum
+        cout << "Sum of window " << i - k + 2 << ": " << sum << endl;
+    }
+}
+
+int main() {
+    vector<int> arr = {1, 3, 2, 6, 4, 8, 5};
+    int k = 3;
+    slidingWindowSum(arr, k);
+    return 0;
+}
+
+
+Conclusion
+The constant window approach to solving sliding window problems provides a significant optimization over recalculating the sum for each window position. By simply updating the sum based on the elements that leave and enter the window, the time complexity is reduced to linear time, making it an efficient solution for large input sizes.
+
+
+Longest Subarray or Substring Explanation
+The problem statement revolves around finding the longest subarray or substring from a given array or string, where the sum of the elements is less than or equal to a given value K. This approach is widely used in coding interviews and is based on the sliding window technique.
+
+Initially, you might start with a brute-force approach where you generate all possible subarrays or substrings and then check each one to see if it meets the condition. However, this is inefficient and can be optimized using the sliding window technique.
+
+Sliding Window Technique
+The sliding window technique helps in optimizing the process by maintaining a window that expands or shrinks based on the conditions. Here's how it works:
+
+Step-by-Step Process:
+
+Initialize Pointers: Start with two pointers, L (left) and R (right), both set to the beginning of the array or string. Also, initialize variables sum and maxLength to zero.
+Expand the Window: Start expanding the window by moving the R pointer. Add the element at the R pointer to sum.
+Check the Condition: If the sum is less than or equal to K, check if the current window size (R - L + 1) is the largest so far. If it is, update maxLength.
+Shrink the Window: If the sum exceeds K, start shrinking the window by moving the L pointer to the right. Subtract the element at the L pointer from sum and continue this process until the sum is less than or equal to K again.
+Continue Until the End: Repeat the above steps until the R pointer reaches the end of the array or string.
+Result: The value in maxLength at the end of the process will be the length of the longest subarray or substring that satisfies the condition.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// Function to find the longest subarray with sum <= K
+int longestSubarrayWithSum(vector<int>& arr, int K) {
+    int n = arr.size();
+    int maxLength = 0; // Initialize the maximum length to 0
+    int sum = 0;       // Initialize the current sum to 0
+    int left = 0;      // Left pointer for the sliding window
+
+    // Iterate over the array using the right pointer
+    for (int right = 0; right < n; right++) {
+        sum += arr[right]; // Add the current element to the sum
+
+        // Shrink the window from the left if sum exceeds K
+        while (sum > K) {
+            sum -= arr[left]; // Subtract the leftmost element from the sum
+            left++;           // Move the left pointer to the right
+        }
+
+        // Update the maximum length if the current window is valid
+        maxLength = max(maxLength, right - left + 1);
+    }
+
+    return maxLength; // Return the maximum length of the valid subarray
+}
+
+int main() {
+    vector<int> arr = {2, 5, 1, 7, 10}; // Example array
+    int K = 14; // Example value of K
+
+    // Find and print the length of the longest subarray with sum <= K
+    int result = longestSubarrayWithSum(arr, K);
+    cout << "The longest subarray length with sum <= " << K << " is: " << result << endl;
+
+    return 0;
+}
+
+The above code demonstrates the sliding window approach. The key is to balance the window's expansion and contraction to ensure that the sum of the elements inside the window is always less than or equal to K.
+
+This method is much more efficient than the brute-force approach and is commonly used in problems involving subarrays or substrings with specific conditions.
+
+Counting the Number of Subarrays with a Given Sum
+In some sliding window problems, the task is not just to find the minimum or maximum length of a subarray, but to count the number of subarrays that satisfy a particular condition. This editorial focuses on such problems, where the goal is to determine the number of subarrays with a given sum, specifically for binary arrays.
+
+Consider the problem of counting the number of subarrays that sum up to 'k'. The approach involves calculating the number of subarrays with at most K ones and then subtracting the number of subarrays with at most K-1 ones. The difference gives the number of subarrays with exactly K ones.
+
+Method
+Define a helper function that counts the number of subarrays with at most K ones. If K is less than 0, the result is 0.
+Iterate through the array using two pointers. Adjust the window size to ensure the sum of the window is at most K. Incrementally add the number of valid subarrays to the result.
+Subtract the result of atMost(K-1) from atMost(K) to get the number of subarrays with exactly K ones.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    // Function to find the number of subarrays with exactly sum S
+    int numSubarraysWithSum(vector<int>& A, int S) {
+        return atMost(A, S) - atMost(A, S - 1);
+    }
+
+private:
+    // Helper function to find the number of subarrays with at most sum S
+    int atMost(vector<int>& A, int S) {
+        if (S < 0) return 0;
+        int res = 0, i = 0;
+
+        // Sliding window approach to count subarrays
+        for (int j = 0; j < A.size(); j++) {
+        // Include A[j] in the current window  
+            S -= A[j];  
+            while (S < 0) {
+            // Shrink the window if the sum exceeds S
+                S += A[i++];  
+            }
+           // Count all subarrays ending at j
+            res += j - i + 1; 
+        }
+
+        return res;
+    }
+};
+
+int main() {
+    Solution sol;
+    vector<int> A = {1, 0, 1, 0, 1}; // Example array
+    int S = 2; // Desired sum
+    int result = sol.numSubarraysWithSum(A, S);
+    cout << "Number of subarrays with sum " << S << ": " << result << endl;
+    return 0;
+}
+
+Conclusion
+By leveraging the difference between the number of subarrays with at most K ones and those with at most K-1 ones, it is possible to efficiently calculate the number of subarrays with exactly K ones. This method provides a concise and powerful solution to a class of sliding window problems.
