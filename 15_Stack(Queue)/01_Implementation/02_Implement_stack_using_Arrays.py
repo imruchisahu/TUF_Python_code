@@ -171,6 +171,34 @@ Time Complexity: O(1) because the individual stack operations take O(1).
 
 Space Complexity: O(N) for using a stack which is equivalent to the size of the array.
 
-
-
 '''
+class ArrayStack:
+    def __init__(self, size = 1000):
+        self.stackArray = [0] * size
+        self.capacity = size
+        self.topIndex = -1
+
+    def push(self, x):
+        if self.topIndex >= self.capacity - 1:
+            print("Stack Overflow")
+            return
+        self.topIndex += 1
+        self.stackArray[self.topIndex] = x
+ 
+
+    def pop(self):
+        if self.isEmpty():
+            print("Stack is Empty")
+            return -1
+        top_element = self.stackArray[self.topIndex]
+        self.topIndex -= 1
+        return top_element
+
+    def top(self):
+        if self.isEmpty():
+            print("Stack is empty")
+            return -1
+        return self.stackArray[self.topIndex]
+    def isEmpty(self):
+        return self.topIndex == -1
+     

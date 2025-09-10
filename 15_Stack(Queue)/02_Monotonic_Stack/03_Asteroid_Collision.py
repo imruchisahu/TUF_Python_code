@@ -133,8 +133,21 @@ For each asteroid in the array, we may push or pop it from the stack at most onc
 The while loop checks the top of the stack and can pop elements from it. In the worst case, every asteroid can be pushed and popped from the stack once taking overall O(N) time.
 Space Complexity: O(N)
 In the worst case, all asteroids will be stored in the stack if there are no collisions, leading to a space requirement of O(N).
-
-
-
-
 '''
+class Solution:
+    def asteroidCollision(self, asteroids):
+        n = len(asteroids)
+        st = []
+        for i in range(n):
+            if asteroids[i] > 0:
+                st.append(asteroids[i])
+            else: 
+                while (st and st[-1] > 0 and 
+                       st[-1] < abs(asteroids[i])):
+                    st.pop()
+                if st and st[-1] == abs(asteroids[i]):
+                    st.pop()
+                elif not st or st[-1] < 0:
+                    st.append(asteroids[i])
+        return st
+    

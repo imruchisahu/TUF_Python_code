@@ -236,6 +236,33 @@ Time Complexity: O(1) The average time complexity for each operation is O(1) bec
 
 Space Complexity: O(2N) because, in the worst case, both the input and output stacks can each hold up to N elements, where N is the total number of elements in the queue. Therefore, the total space used is N + N = 2N.
 
-
-
 '''
+class StackQueue:
+    def __init__(self):
+        self.input=[]
+        self.output=[]
+
+    def push(self, x):
+        self.input.append(x)
+
+    def pop(self):
+        if not self.output:
+            while self.input:
+                self.output.append(self.input.pop())
+        if not self.output:
+            print("Queue is empty, cannot pop.")
+            return -1
+        return self.output.pop()
+
+    def peek(self):
+        if not self.output:
+            while self.input:
+                self.output.append(self.input.pop())
+
+        if not self.output:
+            print("Queue is empty, cannot peek.")
+            return -1
+        return self.output[-1]
+
+    def isEmpty(self):
+        return not self.input and not self.output

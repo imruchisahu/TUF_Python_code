@@ -128,6 +128,29 @@ Traversing the string once takes O(N) time.
 Space Complexity: O(N)
 In the worst case (when the string contains only opening brackets), the stack will store all the characters, taking O(N) space.
 
-
-
 '''
+class Solution:
+    def isMatched(self, open, close):
+       
+        # Match
+        if((open == '(' and close == ')') or
+           (open == '[' and close == ']') or
+           (open == '{' and close == '}')
+        ):
+            return True
+        return False
+
+    def isValid(self, str: str) -> bool:
+        st = []
+        for i in range(len(str)):
+            if str[i] == '(' or str[i] == '[' or str[i] == '{':
+                st.append(str[i])
+            else:
+                if not st:
+                    return False
+                ch = st[-1]
+                st.pop()
+                if not self.isMatched(ch, str[i]):
+                    return False
+        return not st
+    

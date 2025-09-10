@@ -1,6 +1,8 @@
 Sliding Window + Two Pointers: Constant Window Approach
 The sliding window technique, when combined with the two-pointer approach, is a powerful method for solving problems that involve subarrays or substrings within a fixed range. The constant window approach maintains a window of a specific size and slides it across the array or string. This editorial details a method to efficiently compute the sum of elements within such a window by leveraging the properties of the sliding window technique.
 
+Note: The sliding window technique is used to reduce the time complexity of problems that involve contiguous subarrays by maintaining a window of values and updating it as the window "slides" over the array.
+
 Concept
 The goal is to calculate the sum of elements within a fixed-size window as it moves across the array. A brute-force method would involve recalculating the sum of the window each time it moves, which would lead to a time complexity of O(n * k), where n is the number of elements in the array, and k is the size of the window.
 

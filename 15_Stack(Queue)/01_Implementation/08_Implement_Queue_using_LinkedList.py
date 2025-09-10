@@ -178,3 +178,41 @@ Space Complexity: O(N) where N is the number of elements of the stack.
 
 
 '''
+class Node:
+    def __init__(self, d):
+        self.val = d
+        self.next = None
+class LinkedListQueue:
+    def __init__(self):
+        self.start = self.end = None  
+        self.size = 0
+    def push(self, x):
+        element = Node(x)
+        if self.start is None:
+            self.start = self.end = element
+        else:
+            self.end.next = element  
+            self.end = element 
+        self.size += 1
+
+    def pop(self):
+        if self.start is None:
+            return -1  
+        
+        value = self.start.val  
+        temp = self.start  
+        self.start = self.start.next  
+        del temp  
+        self.size -= 1  
+        
+        return value  
+
+    def peek(self):
+        if self.start is None:
+            return -1  
+        
+        return self.start.val
+
+    def isEmpty(self):
+        return self.size == 0
+    
