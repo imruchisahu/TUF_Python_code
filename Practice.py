@@ -1,3 +1,4 @@
+'''
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import keys
@@ -69,3 +70,23 @@ import pytest
 
 def test_login(username, password):
     assert username != " " and password != " "
+'''
+def print_pattern(n: int):
+    if n < 2:
+        print("n must be >= 2")
+        return
+    
+    # Top part: n rows of "@"
+    for _ in range(n):
+        print("@")
+    
+    # Middle: diagonal with stars
+    print("@" + "*" * n)             # first star line with @ at start
+    print(" " * (n) + "*" * n + "@") # shifted line with @ at end
+    
+    # Bottom part: n rows of "@" (shifted to the right)
+    for _ in range(n):
+        print(" " * (n*2) + "@")
+
+# Example run
+print_pattern(4)

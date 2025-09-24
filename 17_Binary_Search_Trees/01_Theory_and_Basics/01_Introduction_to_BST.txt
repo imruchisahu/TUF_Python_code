@@ -1,0 +1,39 @@
+'''
+Pre-requisite : Binary Trees and Recursion .
+Binary Tree Structure:
+A Binary Search Tree (BST) is a specialized form of a binary tree where:
+
+Node Structure: Each node in a BST contains a value and has up to two children: a left child and a right child. These children are also nodes, and the structure continues recursively.
+Left and Right Subtrees: The left child of a node holds values less than the node’s value, while the right child holds values greater than the node’s value. This property ensures that the tree is organized in a way that makes searching efficient.
+Height and Depth: The height of a node is the number of edges on the longest path from the node to a leaf. The depth of a node is the number of edges from the root to the node. In a well-balanced BST, the height is minimized to approximately log2N, where N is the number of nodes, ensuring efficient operations.
+Binary Tree Property: Each node in a BST follows the binary tree property: having at most two children. This binary structure is fundamental to the BST’s efficiency in searching, insertion, and deletion operations.
+Subtree Property: Each subtree of a BST is also a BST. This means that every node in the left subtree is less than the root node, and every node in the right subtree is greater, maintaining the BST property throughout the tree.
+Let's explore the structure of a Binary Search Tree with the illustration below:
+
+
+As depicted in the illustration, the right subtree contains all elements greater than the root, while the left subtree contains all elements less than the root. Importantly, each subtree within a BST is itself a Binary Search Tree, with the left subtree's root value being less than the current node and the right subtree's root value being greater.
+
+For any node in a Binary Search Tree with existing left or right children, the following relationship holds:
+
+Left Child < Node < Right Child
+
+In typical implementations of Binary Search Trees, duplicate node values are not permitted. However, in some special cases, a Binary Search Tree can accommodate duplicate values in the following manners:
+
+
+In a Binary Search Tree, the maximum height is generally maintained at approximately log2(N), where N is the number of nodes. This is significantly more efficient than a plain Binary Tree, whose maximum height can reach N in the case of a skewed tree. This height difference greatly reduces the time required to search for a node in a BST compared to a simple Binary Tree.
+
+For instance, to find an element, you compare it with the BST's root node. If it matches, the search is successful. If the element is greater than the root, you search in the right subtree, which contains all greater values. The left subtree is ignored in this case since it only contains lesser values.
+
+Balanced Variants of BST
+To ensure optimal performance, several balanced variants of BSTs are used, such as:
+
+AVL Tree: : A self-balancing BST where the height difference between left and right subtrees (balance factor) of any node is at most 1. Rotations are used to maintain balance after insertions and deletions.
+
+Red-Black Tree:: A self-balancing BST where each node has an extra bit for color (red or black). Balancing is ensured by following specific rules about node coloring and rotations.
+
+Practical Applications
+Database Indexing: BSTs are used in database indexing to quickly locate records based on keys.
+Symbol Tables: Used in compilers and interpreters to manage variable names and function definitions.
+Memory Management: Implementing data structures like heaps for efficient memory allocation and deallocation.
+
+'''
