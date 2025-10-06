@@ -1,0 +1,30 @@
+Spanning Tree:
+A spanning tree is a subset of a weighted graph in which there are N nodes(i.e. all the nodes present in the original graph) and N-1 edges and all nodes are reachable from each other.
+
+Examples:
+Assume we are given an undirected weighted graph with N nodes and M edges. Here, in the example, N = 6 and M = 7 as shown in the figure: 
+
+For the above graph, one of the spanning trees can be:  Two more spanning trees for the above graph will be: 
+
+All the above spanning trees are subgraphs of the main graph, containing all the N nodes and N-1 edges to connect all nodes. For a particular spanning tree, the sum of edge weights of all its edges is called Weight of that spanning tree.
+
+Note: A graph may have multiple spanning trees as shown in the above example.
+Minimum Spanning tree
+Among all possible spanning trees of a graph, the minimum spanning tree is the one for which the sum of all the edge weights is the minimum.
+
+The three spanning trees shown for the above graph have a weight of 18, 24 and 18 respectively. If all possible spanning trees are drawn, it will be found that the following spanning tree with the minimum sum of edge weights 16 is the minimum spanning tree for the above graph: 
+
+Note: A graph can have multiple minimum spanning trees.
+
+Algorithms for finding the Minimum Spanning Tree for a given graph:
+There are two algorithms that come into picture when finding the Minimum spanning tree for a given graph:
+
+Prim's Algorithm
+Kruskal Algorithm
+Use Cases:
+The concept of finding the Minimum spanning tree for a given graph plays a huge role in daily life:
+
+Telecommunications Networks: Determining the most efficient way to lay out cables to connect all phone exchanges with the minimum total cable length.
+Computer Networks: Finding the optimal way to connect multiple computers or routers in a Local Area Network (LAN) or Wide Area Network (WAN) to minimize the amount of networking hardware and cabling needed.
+Transportation Networks: Creating the most cost-effective road/railway network that connects all cities without redundant routes.
+Water Supply Networks: Ensuring an efficient layout of pipelines that connect all areas with the least possible construction cost and maintenance effort.
